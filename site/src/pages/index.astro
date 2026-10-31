@@ -108,15 +108,15 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
     align-items: baseline;
     gap: 16px;
     padding-block: 18px;
-    border-bottom: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+    border-bottom: 1px solid var(--line);
   }
-  .mark { font-family: var(--display); font-size: 22px; letter-spacing: 0.02em; }
+  .mark { font-family: var(--display); font-size: 26px; letter-spacing: 0.01em; color: var(--bone); }
   .status {
     font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--rust);
+    color: var(--ochre);
   }
 
   .hero {
@@ -133,16 +133,15 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
   }
   .plate { margin: 0; display: flex; flex-direction: column; gap: 10px; }
   .plate :global(img) {
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
-    mask-composite: intersect;
+    background: var(--paper);
+    padding: 10px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 18px 40px rgba(0, 0, 0, 0.55);
   }
   .plate figcaption {
     font-family: var(--fell);
     font-style: italic;
     font-size: 15px;
-    color: var(--ink-soft);
+    color: var(--bone-dim);
     text-align: center;
   }
 
@@ -150,8 +149,9 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
   h1 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(56px, 9vw, 104px);
+    font-size: clamp(64px, 10vw, 120px);
     line-height: 0.9;
+    color: var(--bone);
     margin: 0;
     text-wrap: balance;
   }
@@ -159,16 +159,16 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
     font-family: var(--fell);
     font-style: italic;
     font-size: clamp(22px, 2.6vw, 28px);
-    color: var(--rust);
+    color: var(--ochre);
     margin: 0;
   }
-  .lede { margin: 4px 0 0; max-width: 46ch; color: var(--ink-soft); font-size: 18px; }
+  .lede { margin: 4px 0 0; max-width: 46ch; color: var(--bone-dim); font-size: 18px; }
 
   .waitlist {
     margin-top: 14px;
     padding: 20px;
-    border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
-    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    background: var(--night-2);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -179,7 +179,7 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
     font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--ochre);
   }
   .field { display: flex; gap: 8px; flex-wrap: wrap; }
   .field input {
@@ -188,26 +188,27 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
     font: inherit;
     font-size: 16px;
     padding: 12px 14px;
-    border: 1px solid var(--ink-soft);
-    background: var(--paper);
-    color: var(--ink);
+    border: 1px solid rgba(231, 220, 198, 0.35);
+    background: var(--night);
+    color: var(--bone);
   }
   .field button {
     flex: 0 0 auto;
     font-family: var(--display);
-    font-size: 19px;
-    padding: 10px 18px;
+    font-size: 21px;
+    padding: 9px 18px;
     border: 1px solid var(--teal-deep);
     background: var(--teal-deep);
-    color: var(--paper);
+    color: var(--bone);
     cursor: pointer;
   }
   .field button:hover { background: var(--teal); border-color: var(--teal); }
-  .fine { margin: 0; font-size: 14px; color: var(--ink-soft); }
+  .fine { margin: 0; font-size: 14px; color: var(--bone-dim); }
+  .field input::placeholder { color: #7d705c; }
 
-  .creed { background: var(--night); color: var(--bone); padding-block: 64px 72px; }
+  .creed { background: var(--night-2); color: var(--bone); padding-block: 64px 72px; border-top: 1px solid var(--line); }
   .creed-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
-  .creed h2 { font-family: var(--display); font-weight: 400; font-size: 36px; margin: 0; }
+  .creed h2 { font-family: var(--display); font-weight: 400; font-size: 44px; margin: 0; }
   .creed ul {
     list-style: none;
     margin: 0;
@@ -218,12 +219,13 @@ const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscript
   }
   @media (max-width: 760px) { .creed ul { grid-template-columns: minmax(0, 1fr); gap: 22px; } }
   .creed li { border-top: 1px solid color-mix(in srgb, var(--bone) 25%, transparent); padding-top: 14px; }
-  .creed h3 { font-family: var(--display); font-weight: 400; font-size: 24px; margin: 0 0 6px; color: var(--bone); }
+  .creed h3 { font-family: var(--display); font-weight: 400; font-size: 28px; margin: 0 0 6px; color: var(--bone); }
   .creed h3::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--teal); margin-right: 10px; vertical-align: middle; }
   .creed p { margin: 0; color: var(--bone-dim); }
 
   .foot {
-    background: var(--night-2);
+    background: var(--night);
+    border-top: 1px solid var(--line);
     color: var(--bone-dim);
     display: flex;
     justify-content: space-between;

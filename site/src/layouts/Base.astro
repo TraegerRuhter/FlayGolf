@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Spectral:ital,wght@0,400;0,500;1,400&family=DM+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&family=Spectral:ital,wght@0,400;0,500;1,400&family=DM+Mono&display=swap"
     />
   </head>
   <body>
@@ -27,32 +27,32 @@ const { title, description } = Astro.props;
 </html>
 
 <style is:global>
-  /* Flay palette: aged anatomy-plate paper, umber ink, one teal accent. */
+  /* Flay palette: a dark ground, bone ink, Beksinski earth tones, one teal accent. */
   :root {
-    --paper: #feecde;
-    --paper-deep: #f3dcc6;
-    --ink: #2a1c13;
-    --ink-soft: #5b4330;
-    --rust: #8e3b24;
-    --night: #17110d;
-    --night-2: #211913;
+    --night: #120d0a;
+    --night-2: #1b1410;
+    --night-3: #241a14;
+    --line: rgba(231, 220, 198, 0.16);
     --bone: #e7dcc6;
-    --bone-dim: #b3a58b;
-    --teal: #1d7f86;
+    --bone-dim: #a99b82;
+    --ochre: #c08a3e;
+    --rust: #a3482c;
+    --paper: #feecde;
+    --teal: #2a9aa1;
     --teal-deep: #0e5a63;
 
-    --display: "IM Fell English SC", "IM Fell English", Georgia, serif;
+    --display: "Pirata One", "UnifrakturMaguntia", Georgia, serif;
     --fell: "IM Fell English", Georgia, serif;
     --serif: "Spectral", Georgia, "Times New Roman", serif;
     --mono: "DM Mono", ui-monospace, Menlo, monospace;
 
-    color-scheme: light;
+    color-scheme: dark;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--night);
+    color: var(--bone);
     font-family: var(--serif);
     font-size: 17px;
     line-height: 1.6;
