@@ -44,6 +44,18 @@ Grey with Beksiński's dusty earth tones, plus one accent.
 | Shadow | Deep umber, near-black |
 | Accent | **Teal**, used sparingly. Replaced the earlier acid green. |
 
+## Type
+
+- **Headings and wordmark:** Pirata One, a blackletter whose flared, hooked F
+  matches the torn F in the logo.
+- **Body:** Spectral. **Captions:** IM Fell English italic. **Labels:** DM Mono.
+
+## Website
+
+Dark ground (near-black umber), bone text, ochre for small labels, teal for the
+one call to action. The logo sits on its aged-paper background like a specimen
+plate hung on a dark wall.
+
 ## Logo
 
 A golf ball, flayed: its cover cut in an X, the skin flaps stretched along an

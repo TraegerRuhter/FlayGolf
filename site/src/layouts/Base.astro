@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&family=Spectral:ital,wght@0,400;0,500;1,400&family=DM+Mono&display=swap"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Flay palette: a dark ground, bone ink, Beksinski earth tones, one teal accent. */
+  :root {
+    --night: #120d0a;
+    --night-2: #1b1410;
+    --night-3: #241a14;
+    --line: rgba(231, 220, 198, 0.16);
+    --bone: #e7dcc6;
+    --bone-dim: #a99b82;
+    --ochre: #c08a3e;
+    --rust: #a3482c;
+    --paper: #feecde;
+    --teal: #2a9aa1;
+    --teal-deep: #0e5a63;
+
+    --display: "Pirata One", "UnifrakturMaguntia", Georgia, serif;
+    --fell: "IM Fell English", Georgia, serif;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --mono: "DM Mono", ui-monospace, Menlo, monospace;
+
+    color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--night);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  .gutter {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
