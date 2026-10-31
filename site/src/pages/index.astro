@@ -1,0 +1,236 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import logo from "../assets/logo.png";
+
+// Set PUBLIC_KIT_FORM_ID (from the Kit form's embed code) to start collecting signups.
+const kitFormId = import.meta.env.PUBLIC_KIT_FORM_ID;
+const formAction = kitFormId ? `https://app.kit.com/forms/${kitFormId}/subscriptions` : undefined;
+---
+<Base
+  title="Flay Golf"
+  description="Golf gear we design and 3D print ourselves, for sim bays, basements and anyone who never fit the dress code."
+>
+  <header class="bar gutter">
+    <span class="mark">Flay Golf</span>
+    <span class="status">First drop · in the works</span>
+  </header>
+
+  <main>
+    <section class="hero gutter">
+      <figure class="plate">
+        <Image
+          src={logo}
+          alt="A golf ball flayed open, its dimpled skin stretched along an X-shaped wooden board and nailed down, an F-shaped wound in the center showing a teal core"
+          widths={[480, 760, 1250]}
+          sizes="(max-width: 760px) 92vw, 620px"
+          loading="eager"
+        />
+        <figcaption>Plate I. The ball, laid open on the flaying board.</figcaption>
+      </figure>
+
+      <div class="pitch">
+        <h1>Flay Golf</h1>
+        <p class="tagline">Built, not bought. No dress code.</p>
+        <p class="lede">
+          Golf gear we design and print ourselves, for sim bays, basements and anyone
+          who never fit the country club. The first drop is being tested now.
+        </p>
+
+        <form
+          class="waitlist"
+          id="waitlist"
+          method="post"
+          action={formAction}
+          data-ready={kitFormId ? "true" : "false"}
+        >
+          <label for="email">Get the first drop</label>
+          <div class="field">
+            <input
+              id="email"
+              name="email_address"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="you@example.com"
+            />
+            <button type="submit">Join the waitlist</button>
+          </div>
+          <p class="fine" id="waitlist-note" aria-live="polite">
+            One email when it's live. Unsubscribe anytime.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section class="creed gutter">
+      <div class="creed-inner">
+        <h2>What Flay is</h2>
+        <ul>
+          <li>
+            <h3>Made here</h3>
+            <p>Designed and 3D printed in-house, then tested on real mats until it holds up.</p>
+          </li>
+          <li>
+            <h3>Sim first</h3>
+            <p>Built for simulator bays and hitting mats. Most of it works outside too.</p>
+          </li>
+          <li>
+            <h3>No dress code</h3>
+            <p>Golf for people who never fit the polo-shirt crowd, and never tried to.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot gutter">
+    <span>© {new Date().getFullYear()} Flay Golf</span>
+    <span class="fell">Build log, video and shop coming soon.</span>
+  </footer>
+</Base>
+
+<script>
+  const form = document.getElementById("waitlist") as HTMLFormElement | null;
+  const note = document.getElementById("waitlist-note");
+  if (form && form.dataset.ready !== "true") {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (note) note.textContent = "Signups open soon. The waitlist isn't connected yet.";
+    });
+  }
+</script>
+
+<style>
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-block: 18px;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  }
+  .mark { font-family: var(--display); font-size: 22px; letter-spacing: 0.02em; }
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-block: 48px 72px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 24px 56px; }
+  }
+  .plate { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .plate :global(img) {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    mask-composite: intersect;
+  }
+  .plate figcaption {
+    font-family: var(--fell);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  .pitch { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 104px);
+    line-height: 0.9;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-family: var(--fell);
+    font-style: italic;
+    font-size: clamp(22px, 2.6vw, 28px);
+    color: var(--rust);
+    margin: 0;
+  }
+  .lede { margin: 4px 0 0; max-width: 46ch; color: var(--ink-soft); font-size: 18px; }
+
+  .waitlist {
+    margin-top: 14px;
+    padding: 20px;
+    border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+    background: var(--paper-deep);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 480px;
+  }
+  .waitlist label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .field { display: flex; gap: 8px; flex-wrap: wrap; }
+  .field input {
+    flex: 1 1 220px;
+    min-width: 0;
+    font: inherit;
+    font-size: 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--ink-soft);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .field button {
+    flex: 0 0 auto;
+    font-family: var(--display);
+    font-size: 19px;
+    padding: 10px 18px;
+    border: 1px solid var(--teal-deep);
+    background: var(--teal-deep);
+    color: var(--paper);
+    cursor: pointer;
+  }
+  .field button:hover { background: var(--teal); border-color: var(--teal); }
+  .fine { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  .creed { background: var(--night); color: var(--bone); padding-block: 64px 72px; }
+  .creed-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  .creed h2 { font-family: var(--display); font-weight: 400; font-size: 36px; margin: 0; }
+  .creed ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  @media (max-width: 760px) { .creed ul { grid-template-columns: minmax(0, 1fr); gap: 22px; } }
+  .creed li { border-top: 1px solid color-mix(in srgb, var(--bone) 25%, transparent); padding-top: 14px; }
+  .creed h3 { font-family: var(--display); font-weight: 400; font-size: 24px; margin: 0 0 6px; color: var(--bone); }
+  .creed h3::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--teal); margin-right: 10px; vertical-align: middle; }
+  .creed p { margin: 0; color: var(--bone-dim); }
+
+  .foot {
+    background: var(--night-2);
+    color: var(--bone-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 22px;
+    font-size: 14px;
+  }
+  .fell { font-family: var(--fell); font-style: italic; }
+</style>
