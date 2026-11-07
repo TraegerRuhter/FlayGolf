@@ -110,7 +110,7 @@ Dr. Flay is a dry, slightly haunted Victorian apothecary who is honest to the po
 | Product page (guarantee) | If it doesn't do what this page says, send it back within [X] days and we'll refund you. No séance, no restocking fee, no 12-week program. |
 | Label | DR. FLAY'S CELEBRATED NOTHING · Contents: none · Indications: none · Contraindications: belief · NOVELTY. NOT MEDICINE. DO NOT CONSUME. |
 | Label | Directions: Play golf. Repeat. Results vary, chiefly with skill. |
-| Label | Batch No. 007 · Inspected by one man, who is also the founder, the warehouse and customer service. |
+| Label | Batch No. 007 · Inspected by one person, who is also the founder, the warehouse and customer service. |
 | Label | Endorsed by no touring professional, physician or ghost. (We asked the ghost.) |
 | Label | HOMEOPATHIC TOUR ESSENCE 30C · Diluted past the point of existing. We skipped the water to save on shipping. |
 | Label | Proprietary blend: patience 87%, range balls 12%, lying about your handicap 1%. |
