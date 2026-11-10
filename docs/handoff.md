@@ -2,10 +2,8 @@
 
 Where things stand as of November 10, 2026, for whoever picks this up next.
 
-**Repo:** `TraegerRuhter/FlayGolf`. Everything up to PR #5 is merged to `main`.
-PR #6 (open, branch `claude/install-external-skills-tbjvf3`) holds three rounds
-of research, the site sketchbook and this file. Merge it to keep them on
-`main`.
+**Repo:** `TraegerRuhter/FlayGolf`. Everything up to PR #6 is merged to `main`,
+including three rounds of research, the site sketchbook and this file.
 
 ## Read first
 
@@ -18,7 +16,7 @@ of research, the site sketchbook and this file. Merge it to keep them on
 - `CLAUDE.md` and `docs/agents/`: the issue tracker (GitHub Issues), triage
   labels, domain docs
 
-## Research (in PR #6)
+## Research
 
 Each report in `reports/` has its sourced notes in a matching folder under
 `research_notes/`. Several sources were blocked during research (NGF, USPTO,
@@ -32,9 +30,9 @@ FTC, NAD, Reddit, some forums), so figures marked "search summary" or
 - **`reports/Flay Golf web design ideas.md`:** 10 site concepts. The
   recommendation is to build "Plate I" (home page as an anatomical plate whose
   lettered legend is the menu), then borrow pieces of the others. It also
-  lists fixes for the current page: hover and placeholder contrast, no
-  blackletter on the button, self-hosted fonts, and replacing the AI logo
-  image.
+  lists fixes for the current page. Hover and placeholder contrast and
+  self-hosted fonts are done; still open are no blackletter on the button, a
+  visible button edge, and replacing the AI logo image.
 - **`docs/design/site-sketches.html`:** the 10 concepts as clickable mockups.
   Published privately as the Flay Site Sketchbook artifact:
   https://claude.ai/artifact/3h5DV31PBKBD7pb3kgov5P
@@ -50,8 +48,8 @@ FTC, NAD, Reddit, some forums), so figures marked "search summary" or
 - A pre-launch home page in `site/`, built with Astro 7.4. It has the logo,
   pitch, waitlist form and a "What Flay is" section, on a dark palette with
   Pirata One headings.
-- The waitlist posts to Kit once `PUBLIC_KIT_FORM_ID` is set. Until then it
-  says signups open soon.
+- The waitlist posts to Kit once `PUBLIC_KIT_FORM_ID` is set. Until then the
+  form is switched off and says signups open soon.
 
 ## Waiting on the owner
 
@@ -81,7 +79,7 @@ person.
 
 The owner hasn't picked the order yet. Candidates:
 
-- Build Plate I on the real site, starting with the contrast and font fixes
+- Build Plate I on the real site
 - The "Do now" items from the ideas report: waitlist live, the "why your mat
   tee keeps flying" guide, the tee height chart, haunted golf folklore shorts
 - The satire 90-day plan, which aims at Black Friday (Nov 27) and Jan 30

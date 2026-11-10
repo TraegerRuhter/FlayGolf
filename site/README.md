@@ -24,7 +24,9 @@ npm run build    # outputs the finished site to site/dist
 3. Set `PUBLIC_KIT_FORM_ID=<FORM_ID>` as an environment variable in the hosting
    settings (and in `site/.env` for local testing).
 
-Until it's set, the form shows "Signups open soon" instead of submitting.
+Until it's set, the form is switched off and says "Signups open soon". The ID is
+read when the site is built, so redeploy after setting or changing it. Anything
+other than a plain number stops the build with an error.
 
 ## Deploy (Cloudflare Pages, free)
 
@@ -44,5 +46,7 @@ Until it's set, the form shows "Signups open soon" instead of submitting.
 
 - The logo in `src/assets/logo.png` is cropped from
   `docs/brand/logo-reference.png`, the AI-generated reference. Swap in the
-  illustrator's final art when it's ready.
+  illustrator's final art when it's ready. The share image and tab icon are
+  made from the same file at build time.
+- Fonts are self-hosted through the `@fontsource` packages.
 - Selling will use Stripe Payment Links, added with the shop.
