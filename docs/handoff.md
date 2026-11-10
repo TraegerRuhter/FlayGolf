@@ -2,8 +2,9 @@
 
 Where things stand as of November 10, 2026, for whoever picks this up next.
 
-**Repo:** `TraegerRuhter/FlayGolf`. Everything up to PR #6 is merged to `main`,
-including three rounds of research, the site sketchbook and this file.
+**Repo:** `TraegerRuhter/FlayGolf`. Everything up to PR #7 is merged to `main`:
+three rounds of research and the site sketchbook (#6), then the home page
+fixes below (#7).
 
 ## Read first
 
@@ -47,9 +48,34 @@ FTC, NAD, Reddit, some forums), so figures marked "search summary" or
 - Matt Pocock's skills plugin is enabled through `.claude/settings.json`.
 - A pre-launch home page in `site/`, built with Astro 7.4. It has the logo,
   pitch, waitlist form and a "What Flay is" section, on a dark palette with
-  Pirata One headings.
+  Pirata One headings. It ships no JavaScript.
 - The waitlist posts to Kit once `PUBLIC_KIT_FORM_ID` is set. Until then the
-  form is switched off and says signups open soon.
+  form is built switched off and says signups open soon. The ID is read at
+  build time, so redeploy after setting it; anything but a plain number fails
+  the build.
+- Fonts are self-hosted through `@fontsource`; nothing loads from Google.
+- Link previews and the tab icon are generated from `src/assets/logo.png` at
+  build time (canonical link, `og:image`, `og:url`, favicon).
+
+## Changed in PR #7 (November 10, 2026)
+
+A code review of the whole repo found ten issues in the home page and docs.
+All ten are fixed:
+
+- The waitlist no longer depends on a script to stop submissions when Kit
+  isn't connected
+- The Kit form ID is trimmed and checked at build time
+- Button hover and input placeholder now pass contrast (5.7:1 and 7.1:1)
+- Added the share image, canonical link, `og:url` and favicon
+- The logo image picks the right size on tablets and loads first
+- Fonts moved off Google Fonts to self-hosted files
+- Footer drops the copyright year, which was frozen at build time
+- Removed the unused `@astrojs/markdown-remark` dependency
+- This handoff and `site/README.md` brought up to date
+
+Not tested against a real Kit form yet. The share image keeps the logo's
+proportions (1200 × 998), so some platforms crop it in previews; make a
+1200 × 630 version once the final art exists.
 
 ## Waiting on the owner
 
@@ -79,7 +105,8 @@ person.
 
 The owner hasn't picked the order yet. Candidates:
 
-- Build Plate I on the real site
+- Build Plate I on the real site. Still open from the design report's fixes:
+  move the button off blackletter, and give the button a visible edge
 - The "Do now" items from the ideas report: waitlist live, the "why your mat
   tee keeps flying" guide, the tee height chart, haunted golf folklore shorts
 - The satire 90-day plan, which aims at Black Friday (Nov 27) and Jan 30
@@ -102,8 +129,9 @@ The owner hasn't picked the order yet. Candidates:
 ## Working notes
 
 - The owner prefers one question at a time, with a recommended answer.
-- Git: the old branch's PRs were squash-merged. Merge `origin/main` into the
-  branch before new work, because force-push gets blocked.
+- Git: PRs are squash-merged. Merge `origin/main` into the branch before new
+  work, because force-push gets blocked.
+- Run `npm run build` in `site/` before pushing site changes; there is no CI.
 - `astro preview` reuses an existing server on port 4321.
 - For long research runs, save often: the owner asked for frequent commits
   and pushes, and a session can stop at a usage limit.
