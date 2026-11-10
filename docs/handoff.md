@@ -1,8 +1,11 @@
 # Flay Golf: handoff
 
-Where things stand as of October 31, 2026, for whoever picks this up next.
+Where things stand as of November 10, 2026, for whoever picks this up next.
 
-**Repo:** `TraegerRuhter/FlayGolf`. Everything up to PR #4 is merged to `main`.
+**Repo:** `TraegerRuhter/FlayGolf`. Everything up to PR #5 is merged to `main`.
+PR #6 (open, branch `claude/install-external-skills-tbjvf3`) holds three rounds
+of research, the site sketchbook and this file. Merge it to keep them on
+`main`.
 
 ## Read first
 
@@ -14,6 +17,32 @@ Where things stand as of October 31, 2026, for whoever picks this up next.
   Pages
 - `CLAUDE.md` and `docs/agents/`: the issue tracker (GitHub Issues), triage
   labels, domain docs
+
+## Research (in PR #6)
+
+Each report in `reports/` has its sourced notes in a matching folder under
+`research_notes/`. Several sources were blocked during research (NGF, USPTO,
+FTC, NAD, Reddit, some forums), so figures marked "search summary" or
+"unverified" must be checked before they go into anything public.
+
+- **`reports/Flay Golf ideas and market gaps.md`:** 160 ideas triaged into
+  Do now / Next / Later / Big bets / Skip, plus comps from other sports and the
+  market's white space. Main finding: no golf brand owns the home-sim and
+  garage golfer, and nobody does dark, antique-style golf goods.
+- **`reports/Flay Golf web design ideas.md`:** 10 site concepts. The
+  recommendation is to build "Plate I" (home page as an anatomical plate whose
+  lettered legend is the menu), then borrow pieces of the others. It also
+  lists fixes for the current page: hover and placeholder contrast, no
+  blackletter on the button, self-hosted fonts, and replacing the AI logo
+  image.
+- **`docs/design/site-sketches.html`:** the 10 concepts as clickable mockups.
+  Published privately as the Flay Site Sketchbook artifact:
+  https://claude.ai/artifact/3h5DV31PBKBD7pb3kgov5P
+- **`reports/Golf snake oil satire strategy.md`:** the satire angle. Brand
+  promise "Works as labeled. Cures nothing." An honest core (plain, dated,
+  tested claims) in a patent-medicine costume (jokes only in names, labels and
+  obviously impossible novelty items). It includes a voice guide, 55
+  executions, a 90-day plan and legal guardrails.
 
 ## What exists
 
@@ -34,15 +63,30 @@ Where things stand as of October 31, 2026, for whoever picks this up next.
 - Hiring an illustrator with the brief. Tattoo artists are the first place to
   look.
 - Testing the tee to find out which heights and clubs make it come off the mat
+- A patent consult before the tee is shown, sold or offered anywhere
+- A trademark check on "Dr. Flay" (the Bobby Flay association)
 
-## Next on the site
+## Alternate logo in progress
 
-The owner hasn't picked the order yet:
+A second mark: a grinning flayed golfer strapped to the X board, with a
+newsboy cap, one golf glove, wingtip shoes, a club in each hand pointing down,
+and a blackletter F cut into his chest with a teal glow. It was iterated in
+Gemini; the latest direction uses leather straps instead of nails, a happy
+grin and a crisp dark F. A human figure on an X board is close to House
+Bolton's sigil, so keep it upright, earth-toned and clearly golf, and have a
+trademark attorney look before printing. The final art must be drawn by a
+person.
 
-- Build log (the blog)
-- Video page
-- About page
-- A locked "coming soon" shop using Stripe Payment Links
+## Next up
+
+The owner hasn't picked the order yet. Candidates:
+
+- Build Plate I on the real site, starting with the contrast and font fixes
+- The "Do now" items from the ideas report: waitlist live, the "why your mat
+  tee keeps flying" guide, the tee height chart, haunted golf folklore shorts
+- The satire 90-day plan, which aims at Black Friday (Nov 27) and Jan 30
+- Another research round: verify blocked figures, ceiling and tee height data,
+  merch costs, illustrator shortlist
 
 ## Key decisions
 
@@ -54,6 +98,8 @@ The owner hasn't picked the order yet:
   accent.
 - Logo: a flayed golf ball on an X-shaped flaying board, with an F-shaped wound
   showing a teal core.
+- Satire stays in costume; real claims stay plain and testable. No edible or
+  rub-on "remedies", no naming small competitors.
 
 ## Working notes
 
@@ -61,3 +107,5 @@ The owner hasn't picked the order yet:
 - Git: the old branch's PRs were squash-merged. Merge `origin/main` into the
   branch before new work, because force-push gets blocked.
 - `astro preview` reuses an existing server on port 4321.
+- For long research runs, save often: the owner asked for frequent commits
+  and pushes, and a session can stop at a usage limit.
